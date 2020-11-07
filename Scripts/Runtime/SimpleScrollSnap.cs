@@ -757,6 +757,13 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             }
         }
 
+        public void ChangeContent(RectTransform content) {
+            scrollRect.content.gameObject.SetActive(false);
+            content.gameObject.SetActive(true);
+            scrollRect.content = content;
+            Setup();
+        }
+
         public void AddVelocity(Vector2 velocity)
         {
             scrollRect.velocity += velocity;

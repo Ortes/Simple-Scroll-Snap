@@ -758,9 +758,12 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         }
 
         public void ChangeContent(RectTransform content) {
-            scrollRect.content.gameObject.SetActive(false);
-            content.gameObject.SetActive(true);
+            if (content == scrollRect.content)
+                return;
+            if (scrollRect.content != null)
+                scrollRect.content.gameObject.SetActive(false);
             scrollRect.content = content;
+            content.gameObject.SetActive(true);
             Setup();
         }
 
